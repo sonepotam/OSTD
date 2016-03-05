@@ -274,8 +274,6 @@ $(document).ready(function() {
     }
     setStandalone();
 
-    alert( "webRoot=" + window.location.pathname);
-
 
     if( isStandalone){
         console.log( "Standalone");
