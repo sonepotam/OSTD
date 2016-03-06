@@ -24,7 +24,7 @@
         </encoder>
     </appender>
 
-    <logger name="ru.pavel2107.ostd" level="DEBUG"/>
+    <logger name="ru.pavel2107.ostd" level="INFO"/>
 
     <root level="INFO">
         <appender-ref ref="file"/>

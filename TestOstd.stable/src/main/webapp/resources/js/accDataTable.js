@@ -220,7 +220,7 @@ function sendList(){
     $.ajax({
         type : "POST",
         contentType : "application/json",
-        url : ajaxUrl + "list",
+        url : "TestOstd/" + ajaxUrl + "list",
         data : JSON.stringify(list),
         dataType : 'json',
         timeout : 100000,
