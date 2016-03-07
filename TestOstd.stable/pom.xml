@@ -7,52 +7,17 @@
     <groupId>ru.pavel2107</groupId>
     <artifactId>ostd</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>ostd</name>
+    <name>TestOstd.stable</name>
     <packaging>war</packaging>
 
 
-    <properties>
-        <java.version>1.8</java.version>
-
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
-        <!-- Spring -->
-        <spring.version>4.2.4.RELEASE</spring.version>
-        <spring-data-jpa.versiion>1.9.0.RELEASE</spring-data-jpa.versiion>
-
-        <aspectj.version>1.6.10</aspectj.version>
-        <slf4j.version>1.6.6</slf4j.version>
-
-        <!-- Logging -->
-        <logback.version>1.1.2</logback.version>
-        <slf4j.version>1.7.7</slf4j.version>
-
-        <!--    Tests  -->
-        <junit.version>4.12</junit.version>
-        <hamcrest.version>1.3</hamcrest.version>
 
 
-        <!-- Hibernate -->
-        <hibernate.version>5.0.1.Final</hibernate.version>
-        <hibernate-validator.version>5.1.3.Final</hibernate-validator.version>
-
-        <!-- Tomcat -->
-        <tomcat.version>8.0.28</tomcat.version>
-
-
-        <!-- JSON -->
-        <jackson-json.version>2.6.3</jackson-json.version>
-
-    </properties>
-
-
-    <!-- Spring Boot -->
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.3.2.RELEASE</version>
-    </parent>
+  <parent>
+    <groupId>ru.pavel2107.ostd</groupId>
+    <artifactId>root</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
 
 
 
@@ -293,42 +258,21 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
 
-
-      <plugin>
-        <groupId>com.heroku.sdk</groupId>
-        <artifactId>heroku-maven-plugin</artifactId>
-<configuration>
-  <appName>testostd</appName>
-</configuration>
-        <version>1.0.0</version>
-      </plugin>
-
-
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-dependency-plugin</artifactId>
-                        <version>2.10</version>
-                        <executions>
-                            <execution>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>copy</goal>
-                                </goals>
-                                <configuration>
-                                    <artifactItems>
-                                        <artifactItem>
-                                            <groupId>com.github.jsimone</groupId>
-                                            <artifactId>webapp-runner</artifactId>
-                                            <version>7.0.57.2</version>
-                                            <destFileName>webapp-runner.jar</destFileName>
-                                        </artifactItem>
-                                    </artifactItems>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-
-
+<plugin>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-maven-plugin</artifactId>
+    <configuration>
+        <mainClass>ru.pavel2107.ostd.web.Application</mainClass>
+        <layout>ZIP</layout>
+    </configuration>
+    <executions>
+        <execution>
+            <goals>
+                <goal>repackage</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
 
         </plugins>
     </build>

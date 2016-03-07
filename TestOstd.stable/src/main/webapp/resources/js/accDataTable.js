@@ -8,7 +8,8 @@ var form = $('#detailsForm');
 var failedNote;
 
 var isStandalone = false;
-
+var sDeleteBtn = "Delete";
+var sEditBtn   = "Edit";
 
 
 function makeEditable() {
@@ -39,7 +40,7 @@ function findByIBAN( iban){
         }
     }
     return -1;
-}
+}                       
 
 
 
@@ -155,7 +156,7 @@ function deleteRow(id) {
 function updateTableByData(data) {
     refDataTable.clear();
     for (var i = 0; i < data.length; i++) {
-        refDataTable.row.add( [ data[i].iban, data[i].bic, "1", "1" ]);
+        refDataTable.row.add( [ data[i].iban, data[i].bic, sDeleteBtn, sEditBtn ]);
     }
     refDataTable.draw();
 }
@@ -165,7 +166,7 @@ function updateTableRowByData( n, iban, bic){
         refDataTable.cell(n, 0).data( iban);
         refDataTable.cell(n, 1).data( bic);
     } else {
-        refDataTable.row.add( [ iban, bic, "2", "3"]);
+        refDataTable.row.add( [ iban, bic, sDeleteBtn, sEditBtn]);
     }
 
 }
@@ -191,6 +192,7 @@ function save() {
         console.log( "save.web");
     }
     else {
+        document.getElementById("iban").disabled = false;
         $.ajax({
             type: "POST",
             url: ajaxUrl,
@@ -242,14 +244,16 @@ function sendList(){
 
 function renderEditBtn(data, type, row) {
     if (type == 'display') {
-        return '<a class="btn btn-xs btn-primary" onclick="updateRow(' + row + ');">Edit</a>';
+        var iban = row[0];
+        return '<a class="btn btn-xs btn-primary" onclick="updateRow(\'' + iban + '\');">Edit</a>';
     }
     return data;
 }
 
 function renderDeleteBtn(data, type, row) {
     if (type == 'display') {
-        return '<a class="btn btn-xs btn-danger" onclick="deleteRow(' + row +');">Delete</a>';
+        var iban = row[0];
+        return '<a class="btn btn-xs btn-danger" onclick="deleteRow(\'' + iban +'\');">Delete</a>';
     }
     return data;
 }
@@ -269,7 +273,7 @@ function storageAvailable(type) {
 
 $(document).ready(function() {
 
-    if( !storageAvailable('localStorage')){
+    if( !storageAvailable('sessionStorage')){
         console.log( "Storage NOT availiable !!!");
     }
     setStandalone();
@@ -360,7 +364,7 @@ $(document).ready(function() {
           }
       }
       for (var i = 0; i < newData.length; i++) {
-          refDataTable.row.add( [ newData[i][0], newData[i][1], "1", "1"]);
+          refDataTable.row.add( [ newData[i][0], newData[i][1], sDeleteBtn, sEditBtn]);
       }
       refDataTable.rows().invalidate();
       refDataTable.draw();

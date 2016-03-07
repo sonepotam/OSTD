@@ -79,8 +79,8 @@
 						<tr>
 							<td>${acc.iban}</td>
 							<td>${acc.bic}</td>
-							<td>1</td>
-							<td>1</td>
+							<td>Delete</td>
+							<td>Edit</td>
 						</tr>
 					</c:forEach>
 
