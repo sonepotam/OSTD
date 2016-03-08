@@ -1,0 +1,51 @@
+<application xmlns="http://wadl.dev.java.net/2009/02">
+<doc title="Spring REST Service WADL"/>
+<resources base="http://localhost:8080/TestOstd/v2/application.wadl">
+<resource path="/">
+<method id="root" name="GET">
+<doc title="RootController.root"/>
+</method>
+</resource>
+<resource path="/v2/application.wadl">
+<method id="generateWadl" name="GET">
+<doc title="WADLControllerV2.generateWadl"/>
+<response status="200">
+<representation mediaType="application/xml"/>
+</response>
+</method>
+</resource>
+<resource path="/rest/acc/{iban}">
+<method id="get" name="GET">
+<doc title="AccountController.get"/>
+<request>
+<param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="iban" style="template" type="xs:string" required="true"/>
+</request>
+<response status="200">
+<representation mediaType="application/json"/>
+</response>
+</method>
+<method id="delete" name="DELETE">
+<doc title="AccountController.delete"/>
+<request>
+<param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="iban" style="template" type="xs:string" required="true"/>
+</request>
+</method>
+</resource>
+<resource path="/rest/acc">
+<method id="getAll" name="GET">
+<doc title="AccountController.getAll"/>
+<response status="200">
+<representation mediaType="application/json"/>
+</response>
+</method>
+<method id="updateOrCreate" name="POST">
+<doc title="AccountController.updateOrCreate"/>
+</method>
+</resource>
+<resource path="/rest/acc/list">
+<method id="getList" name="POST">
+<doc title="AccountController.getList"/>
+</method>
+</resource>
+</resources>
+</application>

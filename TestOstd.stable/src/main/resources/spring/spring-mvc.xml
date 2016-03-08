@@ -14,6 +14,8 @@
                   p:prefix="/WEB-INF/jsp/"
                   p:suffix=".jsp"/>
 
-
+    <bean name="handlerMapping" class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
+        <property name="useTrailingSlashMatch" value="false"></property>
+    </bean>
 
         </beans>
