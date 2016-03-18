@@ -5,9 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ru.pavel2107.ostd</groupId>
-    <artifactId>consumer</artifactId>
+    <artifactId>domain</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>consumer</name>
+    <name>domain</name>
+    <packaging>jar</packaging>
+
+
+
 
   <parent>
     <groupId>ru.pavel2107.ostd</groupId>
@@ -16,29 +20,12 @@
   </parent>
 
 
+
     <dependencies>
 
-        <dependency>
-            <groupId>org.apache.activemq</groupId>
-            <artifactId>activemq-all</artifactId>
-            <version>5.13.1</version>
-        </dependency>
 
 
-        <dependency>
-            <groupId>org.apache.activemq</groupId>
-            <artifactId>activemq-kahadb-store</artifactId>
-            <version>5.10.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.activemq</groupId>
-            <artifactId>activemq-broker</artifactId>
-            <version>5.12.2</version>
-        </dependency>
-
-
-
+        <!-- Spring -->
 
         <dependency>
             <groupId>org.springframework</groupId>
@@ -89,7 +76,7 @@
 
 
 
-        <!-- Jackson  -->
+                <!-- Jackson  -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
@@ -101,6 +88,59 @@
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jsr310</artifactId>
             <version>${jackson-json.version}</version>
+        </dependency>
+
+
+        <!--DataBase-->
+
+
+        <dependency>
+            <groupId>org.hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <version>2.3.2</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>${spring-data-jpa.versiion}</version>
+            <exclusions>
+                <!-- Exclude Commons Logging in favor of SLF4j -->
+                <exclusion>
+                    <groupId>commons-logging</groupId>
+                    <artifactId>commons-logging</artifactId>
+                </exclusion>
+
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                </exclusion>
+
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>jcl-over-slf4j</artifactId>
+                </exclusion>
+
+            </exclusions>
+
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-java8</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate-validator.version}</version>
         </dependency>
 
 
@@ -131,12 +171,10 @@
             <version>${spring.version}</version>
             <scope>test</scope>
         </dependency>
-       
 
 
     </dependencies>
     <build>
-        <finalName>consumer</finalName>
         <defaultGoal>package</defaultGoal>
         <plugins>
             <plugin>
@@ -148,14 +186,8 @@
                     <target>${java.version}</target>
                 </configuration>
             </plugin>
-
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-
-
         </plugins>
     </build>
+
 
 </project>

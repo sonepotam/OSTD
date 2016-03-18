@@ -53,7 +53,9 @@
 
 
   <modules>
-    <module>TestOstd.stable</module>
+    <module>domain</module>
+    <module>service</module>
+    <module>web</module>
     <module>consumer</module>
   </modules>
 
