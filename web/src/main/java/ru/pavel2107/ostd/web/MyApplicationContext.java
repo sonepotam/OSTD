@@ -13,7 +13,7 @@ import org.springframework.context.annotation.ImportResource;
 
 @Configuration
 @ImportResource( {
-        "classpath:src/main/resources/spring-app.xml",
+        "classpath:spring/spring-app.xml",
         "classpath:spring/spring-db.xml",
         "classpath:spring/spring-jms-producer.xml"})
 public class MyApplicationContext {

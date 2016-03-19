@@ -14,8 +14,8 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
-//import ru.pavel2107.neostoreRest.utils.LoggerWrapper;
 
+import javax.ws.rs.*;
 
 /**
  * Created by lenovo on 12.12.2015.
@@ -29,6 +29,8 @@ public class RootController {
 
 
     @RequestMapping( value = "/", method = RequestMethod.GET)
+    //@GET    
+    //@Path( "/")
     public String root( Map<String, Object> map)
     {
         List<Account> list = controller.getAll();

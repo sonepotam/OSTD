@@ -29,10 +29,14 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
  
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 /**
  * Root resource (exposed at "helloworld" path)
  */
-@Path("helloworld")
+@Component
 public class TestController {
  
     /** Creates a new instance of HelloWorld */
@@ -44,6 +48,7 @@ public class TestController {
      * @return an instance of java.lang.String
      */
     @GET
+    @Path("/helloworld")
     @Produces("text/html")
     public String getHtml() {
         return "<html lang=\"en\"><body><h1>Hello, World!!</h1></body></html>";
