@@ -1,0 +1,1 @@
+wadl2java.bat -o ./ -p client rest.wadl 

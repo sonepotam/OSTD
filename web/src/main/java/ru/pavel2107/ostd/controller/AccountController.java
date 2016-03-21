@@ -30,7 +30,6 @@ import java.util.List;
 // CRUD-контроллер для пользователя
 // без аутентификации можно только зарегистрироваться
 
-//@RestController
 @Controller
 @RequestMapping( "/rest/acc")
 public class AccountController{
@@ -80,7 +79,7 @@ public class AccountController{
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(method = RequestMethod.POST)//, consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public void updateOrCreate(@Valid AccountTo account, BindingResult result, SessionStatus status) {
         LOG.info( "AccountController.create account: " + account);
@@ -100,9 +99,4 @@ public class AccountController{
         LOG.info( "AccountController. account list received: " + accList);
         sendMessage( accList);
     }
-
-
-
-
-
 }

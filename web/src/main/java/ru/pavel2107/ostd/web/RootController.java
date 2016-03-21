@@ -29,8 +29,6 @@ public class RootController {
 
 
     @RequestMapping( value = "/", method = RequestMethod.GET)
-    //@GET    
-    //@Path( "/")
     public String root( Map<String, Object> map)
     {
         List<Account> list = controller.getAll();

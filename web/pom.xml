@@ -159,8 +159,12 @@
                 <!-- Jackson  -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
+            <artifactId>jackson-core</artifactId>
             <version>${jackson-json.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
         </dependency>
 
 
@@ -303,37 +307,6 @@
                   </execution>
                </executions>
             </plugin>
-
-<!-- WADL -->
-
-<plugin>
-        <groupId>org.apache.cxf</groupId>
-        <artifactId>cxf-java2wadl-plugin</artifactId>
-        <version>3.0.0</version>
-        <executions>
-          <execution>
-            <id>parsejavadoc</id>
-            <phase>generate-sources</phase>
-            <goals>
-              <goal>parsejavadoc</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>process-classes</id>
-            <phase>process-classes</phase>
-            <goals>
-              <goal>java2wadl</goal>
-            </goals>
-            <configuration>
-              <classResourceNames>
-                <classResourceName>ru.pavel2107.ostd.web.TestController</classResourceName>
-              </classResourceNames>
-              <docProvider>org.apache.cxf.maven_plugin.javatowadl.ResourceMapJavaDocProvider</docProvider>
-              <attachWadl>true</attachWadl>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
 
         </plugins>
     </build>

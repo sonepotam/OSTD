@@ -49,20 +49,12 @@
 <div class="jumbotron">
 	<div class="container">
 		<div class="shadow">
-
-			<div class="view-box">
-				<div class="container">
-					<div class="row">
-						<div class="btn-group">
-							<p>
-								<a id="addRow"   class="btn btn-success" data-toggle="modal" data-target="#editRow">Add account</a>
-								<a id="sendList" class="btn btn-success" onclick="sendList()" href="#" >Send List</a>
-								<input type="hidden" id="standalone" value="${standalone}" >
-							</p>
-						</div>
-					</div>
-				</div>
-				<p/>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                           <h3 class="panel-title">Edit account list</h3>
+                        </div>       
+                        <div class="panel-body">
+    			    <div class="view-box">
 				<table class="table table-striped display" id="datatable">
 					<thead>
 					<tr>
@@ -87,9 +79,20 @@
 
 					</tbody>
 				</table>
+			    </div>
+                        </div>
+                       <div class="panel-footer">               
+                         <div class="form-group">
+       			    <a id="addRow"   class="btn btn-primary" data-toggle="modal" data-target="#editRow">Add account</a>
+ 			    <a id="sendList" class="btn btn-primary" onclick="sendList()" href="#" >Send List</a>
+        		    <input type="hidden" id="standalone" value="${standalone}" >
+		        </div>
+                      </div>
+              </div>                              
+           </div>
 
-			</div>
 		</div>
+             </div>
 	</div>
 </div>
 
